@@ -1,0 +1,7 @@
+<launch>
+    <node name="gazebo" pkg="gazebo_ros" type="gazebo"/>
+    <include file="$(find marco_gazebo)/launch/marco_gazebo.launch"/>
+    <include file="$(find marco_control)/launch/marco_control.launch"/>
+    <node name="marco_demo_node" pkg="marco_demo" type="marco_demo"/>
+
+</launch>
