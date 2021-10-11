@@ -1,0 +1,362 @@
+<sdf version='1.7'>
+  <model name='marco'>
+    <joint name='fixed' type='fixed'>
+      <pose relative_to='__model__'>0 0 0 0 -0 0</pose>
+      <parent>world</parent>
+      <child>link0</child>
+    </joint>
+    <link name='link0'>
+      <pose relative_to='fixed'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>1</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1</iyy>
+          <iyz>0</iyz>
+          <izz>1</izz>
+        </inertia>
+      </inertial>
+      <visual name='link0_visual'>
+        <pose>0 0 0.005 0 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.01</length>
+            <radius>1</radius>
+          </cylinder>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='joint1' type='revolute'>
+      <pose relative_to='link0'>0 0 0 0 -0 0</pose>
+      <parent>link0</parent>
+      <child>link1</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <damping>0.5</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='link1'>
+      <pose relative_to='joint1'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.065</mass>
+        <inertia>
+          <ixx>9.15417e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0</iyy>
+          <iyz>0</iyz>
+          <izz>0.000366167</izz>
+        </inertia>
+      </inertial>
+      <collision name='link1_collision'>
+        <pose>0 0 0.065 0 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.03</length>
+            <radius>0.05</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name='link1_visual'>
+        <pose>0 0 0 0 -0 1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>0.1 0.1 0.1</scale>
+            <uri>model://marco_description/models/marco/meshes/link1.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='joint2' type='revolute'>
+      <pose relative_to='link1'>0 0 0.13 0 -0 0</pose>
+      <parent>link1</parent>
+      <child>link2</child>
+      <axis>
+        <xyz>0 -1 0</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <damping>0.5</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='link2'>
+      <pose relative_to='joint2'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.12</mass>
+        <inertia>
+          <ixx>0.000576</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0</iyy>
+          <iyz>0</iyz>
+          <izz>0.002304</izz>
+        </inertia>
+      </inertial>
+      <collision name='link2_collision'>
+        <pose>0 0 0.12 0 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.14</length>
+            <radius>0.05</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name='link2_visual'>
+        <pose>0 0 0 0 -0 1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>0.1 0.1 0.1</scale>
+            <uri>model://marco_description/models/marco/meshes/link2.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='joint3' type='revolute'>
+      <pose relative_to='link2'>0 0 0.24 0 -0 0</pose>
+      <parent>link2</parent>
+      <child>link3</child>
+      <axis>
+        <xyz>0 -1 0</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <damping>0.5</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='link3'>
+      <pose relative_to='joint3'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.165</mass>
+        <inertia>
+          <ixx>0.00149738</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0</iyy>
+          <iyz>0</iyz>
+          <izz>0.0059895</izz>
+        </inertia>
+      </inertial>
+      <collision name='link3_collision'>
+        <pose>0 0 0.165 0 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.23</length>
+            <radius>0.05</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name='link3_visual'>
+        <pose>0 0 0 0 -0 1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>0.1 0.1 0.1</scale>
+            <uri>model://marco_description/models/marco/meshes/link3.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='joint4' type='revolute'>
+      <pose relative_to='link3'>0 0 0.33 0 -0 0</pose>
+      <parent>link3</parent>
+      <child>link4</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <damping>0.5</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='link4'>
+      <pose relative_to='joint4'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.18</mass>
+        <inertia>
+          <ixx>0.001944</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0</iyy>
+          <iyz>0</iyz>
+          <izz>0.007776</izz>
+        </inertia>
+      </inertial>
+      <collision name='link4_collision'>
+        <pose>0 0 0.18 0 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.26</length>
+            <radius>0.05</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name='link4_visual'>
+        <pose>0 0 0 0 -0 1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>0.1 0.1 0.1</scale>
+            <uri>model://marco_description/models/marco/meshes/link4.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='joint5' type='revolute'>
+      <pose relative_to='link4'>0 0 0.36 0 -0 0</pose>
+      <parent>link4</parent>
+      <child>link5</child>
+      <axis>
+        <xyz>0 -1 0</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <damping>0.5</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='link5'>
+      <pose relative_to='joint5'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.115</mass>
+        <inertia>
+          <ixx>0.000506958</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0</iyy>
+          <iyz>0</iyz>
+          <izz>0.00202783</izz>
+        </inertia>
+      </inertial>
+      <collision name='link5_collision'>
+        <pose>0 0 0.115 0 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.13</length>
+            <radius>0.05</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name='link5_visual'>
+        <pose>0 0 0 0 -0 1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>0.1 0.1 0.1</scale>
+            <uri>model://marco_description/models/marco/meshes/link5.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='joint6' type='revolute'>
+      <pose relative_to='link5'>0 0 0.23 0 -0 0</pose>
+      <parent>link5</parent>
+      <child>link6</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <damping>0.5</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='link6'>
+      <pose relative_to='joint6'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>-0 0 0.157773 0 -0 0</pose>
+        <mass>2.155</mass>
+        <inertia>
+          <ixx>2.00912</ixx>
+          <ixy>0</ixy>
+          <ixz>-2.18953e-18</ixz>
+          <iyy>2.02416</iyy>
+          <iyz>0</iyz>
+          <izz>2.02497</izz>
+        </inertia>
+      </inertial>
+      <collision name='link6_collision'>
+        <pose>0 0 0.155 0 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.21</length>
+            <radius>0.05</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name='link6_visual'>
+        <pose>0 0 0 0 -0 1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>0.1 0.1 0.1</scale>
+            <uri>model://marco_description/models/marco/meshes/link6.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='link6_fixed_joint_lump__gripper_a_visual_1'>
+        <pose>-0.1 0 0.17 0 1.5708 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.1 0.1 0.1</scale>
+            <uri>model://marco_description/models/marco/meshes/gripper_a.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='link6_fixed_joint_lump__gripper_b_visual_2'>
+        <pose>0.1 0 0.17 0 -1.5708 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.1 0.1 0.1</scale>
+            <uri>model://marco_description/models/marco/meshes/gripper_b.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <plugin name='gazebo_ros_control' filename='libgazebo_ros_control.so'>
+      <robotNamespace>/marco</robotNamespace>
+    </plugin>
+    <static>0</static>
+    <self_collide>1</self_collide>
+  </model>
+</sdf>

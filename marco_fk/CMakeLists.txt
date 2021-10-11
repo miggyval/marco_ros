@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(marco_gazebo)
+project(marco_fk)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
@@ -8,11 +8,10 @@ project(marco_gazebo)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  gazebo_plugins
-  gazebo_ros
-  gazebo_ros_control
-  marco_description
-  xacro
+  geometry_msgs
+  rospy
+  std_msgs
+  sensor_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -72,7 +71,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## Generate added messages and services with any dependencies listed here
 # generate_messages(
 #   DEPENDENCIES
-#   std_msgs  # Or other packages containing msgs
+#   geometry_msgs#   std_msgs
 # )
 
 ################################################
@@ -106,8 +105,8 @@ find_package(catkin REQUIRED COMPONENTS
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES marco_gazebo
-#  CATKIN_DEPENDS gazebo_plugins gazebo_ros gazebo_ros_control marco_description xacro
+#  LIBRARIES marco_fk
+#  CATKIN_DEPENDS geometry_msgs rospy std_msgs
 #  DEPENDS system_lib
 )
 
@@ -119,14 +118,12 @@ catkin_package(
 ## Your package locations should be listed before other locations
 include_directories(
 # include
-  ${GAZEBO_INCLUDE_DIRS}
-  ${SDFormat_INCLUDE_DIRS}
   ${catkin_INCLUDE_DIRS}
 )
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/marco_gazebo.cpp
+#   src/${PROJECT_NAME}/marco_fk.cpp
 # )
 
 ## Add cmake target dependencies of the library
@@ -137,7 +134,7 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-# add_executable(${PROJECT_NAME}_node src/marco_gazebo_node.cpp)
+# add_executable(${PROJECT_NAME}_node src/marco_fk_node.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -163,10 +160,11 @@ include_directories(
 
 ## Mark executable scripts (Python etc.) for installation
 ## in contrast to setup.py, you can choose the destination
-# catkin_install_python(PROGRAMS
-#   scripts/my_python_script
-#   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-# )
+catkin_install_python(PROGRAMS
+    src/nodes/marco_fk_node.py
+    src/nodes/marco_fk_demo.py
+    DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
 
 ## Mark executables for installation
 ## See http://docs.ros.org/melodic/api/catkin/html/howto/format1/building_executables.html
@@ -201,7 +199,7 @@ include_directories(
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_marco_gazebo.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_marco_fk.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()

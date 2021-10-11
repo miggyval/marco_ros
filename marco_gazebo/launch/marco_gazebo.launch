@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
-  <arg name="model" default="$(find marco_description)/urdf/marco.xacro"/>
-
+  <arg name="model" default="$(find marco_description)/models/marco/marco.xacro"/>
   <param name="robot_description" command="xacro '$(arg model)'" />
-    
-    <node name="marco_spawn" pkg="gazebo_ros" type="spawn_model" output="screen" args="-urdf -param robot_description -model marco" />
-          
+  <node name="marco_spawn" pkg="gazebo_ros" type="spawn_model" output="screen" args="-urdf -param robot_description -model marco" />
 </launch>

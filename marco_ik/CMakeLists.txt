@@ -162,8 +162,8 @@ include_directories(
 ## Mark executable scripts (Python etc.) for installation
 ## in contrast to setup.py, you can choose the destination
 catkin_install_python(PROGRAMS
-   nodes/marco_ik_node.py
-   nodes/marco_pose_node.py
+   src/nodes/marco_ik_node.py
+   src/nodes/marco_pose_node.py
    DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
  )
 
